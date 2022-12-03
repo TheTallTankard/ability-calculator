@@ -3,7 +3,7 @@ import AbilityScoreRow from './AbilityScoreRow';
 
 function Body(){
     return (
-        <div className="body">
+        <div className="Body">
             <table>
                 <thead>
                     <tr>
