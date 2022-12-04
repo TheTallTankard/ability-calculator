@@ -4,8 +4,7 @@ import '../styles/Footer.css';
 function Footer () {
     return (
         <div className="Footer">
-            <sm>Built with React</sm>
-            <img src={logo} className="react-logo" alt="react logo" />
+            Built with React <img src={logo} className="react-logo" alt="react logo" />
         </div>
     )
 }

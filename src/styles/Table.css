@@ -1,0 +1,8 @@
+.Table {
+    margin: 0 auto;
+}
+
+th, td {
+    width: 60px;
+    padding: 5px;
+}

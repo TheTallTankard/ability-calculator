@@ -1,7 +1,7 @@
 .Footer {
-    position: fixed;
     width: 100vmin;
     text-align: center;
+    margin: 0 auto;
 }
 
 .react-logo {
