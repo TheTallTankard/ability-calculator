@@ -1,4 +1,3 @@
-import logo from '../logo.svg';
 import tankard from '../TheTallTankard_Zoomed_NoBackground.png';
 import '../styles/Footer.css';
 
