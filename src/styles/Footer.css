@@ -5,7 +5,7 @@
 }
 
 .tankard-logo {
-    height: 22px;
+    height:  calc(8px + 1vmin);
     vertical-align: middle;
     pointer-events: none;
     }
