@@ -2,7 +2,7 @@
     margin: 0 auto;
 }
 
-th, td {
-    width: 60px;
+.Table td {
+    width: 4vmin;
     padding: 5px;
 }
