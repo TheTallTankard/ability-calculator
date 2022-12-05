@@ -1,32 +1,23 @@
 import React from 'react';
-import '../styles/AbilityScoreRow.css';
+import AbilityScoreRowState from '../classes/AbilityScoreRowState'
+import '../../styles/AbilityScoreRow.css';
 
 class AbilityScoreRow extends React.Component {
     constructor(props){
         super(props);
-        this.state = {
-            score: 8,
-            bonus: 0,
-            total: 8,
-            modifier: -1,
-            cost: 0
-        }
+        this.state = new AbilityScoreRowState();
         this.handleScoreChange = this.handleScoreChange.bind(this);
         this.handleBonusChange = this.handleBonusChange.bind(this);
     }
 
     handleScoreChange(e){
-        this.setState((state) => ({score: parseInt(e.target.value)}));
-        this.setState((state) => ({total: parseInt(e.target.value) + state.bonus}));
-        this.setState((state) => ({modifier: parseInt(state.total / 2) - 5}));
-        this.setState((state) => ({cost: this.scoreToCost(e.target.value)}));
+        this.setState((prevState) => ({score: parseInt(e.target.value)}));
+        this.recalculate();
     }
 
     handleBonusChange(e){
-        this.setState((state) => ({bonus: parseInt(e.target.value)}));
-        this.setState((state) => ({total: state.score + parseInt(e.target.value)}));
-        this.setState((state) => ({modifier: parseInt(state.total / 2) - 5}));
-        this.setState((state) => ({cost: this.scoreToCost(state.score)}));
+        this.setState((prevState) => ({bonus: parseInt(e.target.value)}));
+        this.recalculate();
     }
 
     render(){
@@ -44,13 +35,20 @@ class AbilityScoreRow extends React.Component {
         )
     }
 
+    recalculate(){
+        this.setState((prevState) => ({total: prevState.score + prevState.bonus}));
+        this.setState((prevState) => ({modifier: parseInt(prevState.total / 2) - 5}));
+        this.setState((prevState) => ({cost: this.scoreToCost(prevState.score)}));
+    }
+
     scoreToCost(score){
         switch(score){
-            case '15': return 9;
-            case '14': return 7;
+            case 15: return 9;
+            case 14: return 7;
             default: return (score - 8);
         }
     }
+
 }
 
 export default AbilityScoreRow;

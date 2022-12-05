@@ -1,6 +1,7 @@
 import React from 'react';
-import '../styles/Table.css';
+import '../../styles/Table.css';
 import AbilityScoreRow from './AbilityScoreRow';
+import AbilityScoreRowState from '../classes/AbilityScoreRowState';
 
 
 class Table extends React.Component {
@@ -8,7 +9,13 @@ class Table extends React.Component {
         super(props);
         this.onScoreChange = this.onScoreChange.bind(this);
         this.state  = {
-            pointsUsed: 0
+            pointsUsed: 0,
+            str: new AbilityScoreRowState(),
+            dex: new AbilityScoreRowState(),
+            con: new AbilityScoreRowState(),
+            int: new AbilityScoreRowState(),
+            wis: new AbilityScoreRowState(),
+            cha: new AbilityScoreRowState()
         }
     }
 

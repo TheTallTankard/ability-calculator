@@ -1,5 +1,4 @@
-import tankard from '../TheTallTankard_Zoomed_NoBackground.png';
-import '../styles/Header.css';
+import '../../styles/Header.css';
 
 function Header () {
     return (

@@ -1,4 +1,4 @@
-import '../styles/Body.css';
+import '../../styles/Body.css';
 import Table from './Table';
 
 function Body(){

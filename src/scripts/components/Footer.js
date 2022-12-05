@@ -1,5 +1,5 @@
-import tankard from '../TheTallTankard_Zoomed_NoBackground.png';
-import '../styles/Footer.css';
+import tankard from '../../TheTallTankard_Zoomed_NoBackground.png';
+import '../../styles/Footer.css';
 
 function Footer () {
     return (
