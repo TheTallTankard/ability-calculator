@@ -1,8 +1,13 @@
-.Table {
+.Table table{
+    max-width: 800px;
     margin: 0 auto;
 }
 
 .Table td {
-    width: 4vmin;
+    width: 12.5%;
     padding: 5px;
+}
+
+.header-row {
+    font-weight: bold;
 }

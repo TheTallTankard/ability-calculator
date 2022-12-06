@@ -27,19 +27,21 @@ class Table extends React.Component {
                             <td></td>
                             <td></td>
                             <td colSpan="2">Points Used:</td>
-                            <td colSpan="2"><span id="points-used">{this.state.pointsUsed}</span> / 27</td>
+                            <td><span id="points-used">{this.state.pointsUsed}</span> / 27</td>
+                            <td></td>
                             <td></td>
                             <td></td>
                         </tr>
-                        <tr>
-                            <td>Ability</td>
-                            <td>Score</td>
+                        <tr><td colSpan="8"></td></tr>
+                        <tr className="header-row">
+                            <td>ABILITY</td>
+                            <td>SCORE</td>
                             <td></td>
-                            <td>Bonus</td>
+                            <td>BONUS</td>
                             <td></td>
-                            <td>Total</td>
-                            <td>Modifier</td>
-                            <td>Cost</td>
+                            <td>TOTAL</td>
+                            <td>MODIFIER</td>
+                            <td>COST</td>
                         </tr>
                         <AbilityScoreRow ability="str" onCostChange={this.updatePointsUsed}></AbilityScoreRow>
                         <AbilityScoreRow ability="dex" onCostChange={this.updatePointsUsed} ></AbilityScoreRow>
