@@ -5,40 +5,46 @@ import '../../styles/AbilityScoreRow.css';
 class AbilityScoreRow extends React.Component {
     constructor(props){
         super(props);
-        this.state = new AbilityScoreRowState();
         this.handleScoreChange = this.handleScoreChange.bind(this);
         this.handleBonusChange = this.handleBonusChange.bind(this);
-    }
-
-    handleScoreChange(e){
-        this.setState((prevState) => ({score: parseInt(e.target.value)}));
-        this.recalculate();
-    }
-
-    handleBonusChange(e){
-        this.setState((prevState) => ({bonus: parseInt(e.target.value)}));
-        this.recalculate();
+        this.state = new AbilityScoreRowState();
     }
 
     render(){
+        const { ability } = this.props;
         return (
-            <tr id={this.props.ability}>
-                <td>{this.props.ability}</td>
-                <td><input id="score" type="number" min="8" max="15" value={this.state.score} onChange={this.handleScoreChange}></input></td>
+            <tr id={ability}>
+                <td>{ability.toUpperCase()}</td>
+                <td><input id={ability + "-score"} type="number" min="8" max="15" value={this.state.score} onChange={this.handleScoreChange}></input></td>
                 <td>+</td>
-                <td><input id="bonus" type="number" min="0" max="2" value={this.state.bonus} onChange={this.handleBonusChange}></input></td>
+                <td><input id={ability + "-bonus"} type="number" min="0" max="2" value={this.state.bonus} onChange={this.handleBonusChange}></input></td>
                 <td>=</td>
-                <td><span id="total"></span>{this.state.total}</td>
-                <td><span id="modifier"></span>{this.state.modifier}</td>
-                <td><span id="cost"></span>{this.state.cost}</td>
+                <td><span id={ability + "-total"}></span>{this.state.total}</td>
+                <td><span id={ability + "-modifier"}></span>{this.state.modifier}</td>
+                <td><span id={ability + "-cost"}></span>{this.state.cost}</td>
             </tr>
         )
     }
 
-    recalculate(){
-        this.setState((prevState) => ({total: prevState.score + prevState.bonus}));
-        this.setState((prevState) => ({modifier: parseInt(prevState.total / 2) - 5}));
-        this.setState((prevState) => ({cost: this.scoreToCost(prevState.score)}));
+    handleScoreChange(e){
+        let newAbilityScoreRowState = this.recalculate(parseInt(e.target.value), this.state.bonus);
+        this.setState(newAbilityScoreRowState);
+        this.props.onCostChange(this.props.ability, newAbilityScoreRowState.cost);
+    }
+
+    handleBonusChange(e){
+        let newAbilityScoreRowState = this.recalculate(this.state.score, parseInt(e.target.value));
+        this.setState(newAbilityScoreRowState);
+    }
+
+    recalculate(score, bonus){
+        let newAbilityScoreRowState = new AbilityScoreRowState();
+        newAbilityScoreRowState.score = score;
+        newAbilityScoreRowState.bonus = bonus;
+        newAbilityScoreRowState.total = score + bonus;
+        newAbilityScoreRowState.modifier = parseInt(newAbilityScoreRowState.total / 2) - 5;
+        newAbilityScoreRowState.cost = this.scoreToCost(score);
+        return newAbilityScoreRowState;
     }
 
     scoreToCost(score){

@@ -1,22 +1,21 @@
 import React from 'react';
 import '../../styles/Table.css';
 import AbilityScoreRow from './AbilityScoreRow';
-import AbilityScoreRowState from '../classes/AbilityScoreRowState';
 
 
 class Table extends React.Component {
     constructor(props){
         super(props);
-        this.onScoreChange = this.onScoreChange.bind(this);
+        this.updatePointsUsed = this.updatePointsUsed.bind(this);
         this.state  = {
             pointsUsed: 0,
-            str: new AbilityScoreRowState(),
-            dex: new AbilityScoreRowState(),
-            con: new AbilityScoreRowState(),
-            int: new AbilityScoreRowState(),
-            wis: new AbilityScoreRowState(),
-            cha: new AbilityScoreRowState()
-        }
+            strCost: 0,
+            dexCost: 0, 
+            conCost: 0, 
+            intCost: 0, 
+            wisCost: 0, 
+            chaCost: 0
+        };
     }
 
     render(){
@@ -42,25 +41,33 @@ class Table extends React.Component {
                             <td>Modifier</td>
                             <td>Cost</td>
                         </tr>
-                        <AbilityScoreRow ability="STR"></AbilityScoreRow>
-                        <AbilityScoreRow ability="DEX"></AbilityScoreRow>
-                        <AbilityScoreRow ability="CON"></AbilityScoreRow>
-                        <AbilityScoreRow ability="INT"></AbilityScoreRow>
-                        <AbilityScoreRow ability="WIS"></AbilityScoreRow>
-                        <AbilityScoreRow ability="CHA"></AbilityScoreRow>
+                        <AbilityScoreRow ability="str" onCostChange={this.updatePointsUsed}></AbilityScoreRow>
+                        <AbilityScoreRow ability="dex" onCostChange={this.updatePointsUsed} ></AbilityScoreRow>
+                        <AbilityScoreRow ability="con" onCostChange={this.updatePointsUsed} ></AbilityScoreRow>
+                        <AbilityScoreRow ability="int" onCostChange={this.updatePointsUsed} ></AbilityScoreRow>
+                        <AbilityScoreRow ability="wis" onCostChange={this.updatePointsUsed} ></AbilityScoreRow>
+                        <AbilityScoreRow ability="cha" onCostChange={this.updatePointsUsed} ></AbilityScoreRow>
                     </tbody>
                 </table>
             </div>
         )
     }
 
-    onScoreChange(e) {
-        this.setState((state) => ({score: parseInt(e.target.value)}));
-        this.setState((state) => ({total: parseInt(e.target.value) + state.bonus}));
-        this.setState((state) => ({modifier: parseInt(state.total / 2) - 5}));
-        this.setState((state) => ({cost: this.scoreToCost(e.target.value)}));
-    }
-    
+    updatePointsUsed(ability, newCost) {
+        switch(ability)
+        {
+            case "str": this.setState({strCost: newCost}); break;
+            case "dex": this.setState({dexCost: newCost}); break;
+            case "con": this.setState({conCost: newCost}); break;
+            case "int": this.setState({intCost: newCost}); break;
+            case "wis": this.setState({wisCost: newCost}); break;
+            case "cha": this.setState({chaCost: newCost}); break;
+        }
+
+        this.setState((state) => ({
+            pointsUsed: state.strCost + state.dexCost + state.conCost + state.intCost + state.wisCost + state.chaCost
+        }));
+    }    
 }
 
 export default Table;
