@@ -1,8 +1,13 @@
 .Footer {
+    font-size: calc(8px + 1vmin);
+}
+
+.Footer .last-updated {
+    font-size: 1vmin;
 }
 
 .tankard-logo {
-    height:  calc(5px + 1vmin);
+    height:  calc(3vmin);
     vertical-align: middle;
     pointer-events: none;
     }
