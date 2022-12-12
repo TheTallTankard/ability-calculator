@@ -21,7 +21,7 @@ class ScoreModeSelector extends React.Component {
                         <option value={ScoreModes.Roll4D6DropLowest}>{ScoreModes.Roll4D6DropLowest}</option>
                     </select>
                     &nbsp;
-                    <Button className="roll-4d6-drop-low-conditional">Roll</Button>
+                    <Button className="roll-4d6-drop-low-conditional" onClick={this.roll}>Roll</Button>
                 </div>
                 <br />
                 <div id="score-mode-desc">{ScoreModes.PointBuyDesc}</div>
@@ -34,22 +34,14 @@ class ScoreModeSelector extends React.Component {
         this.props.onScoreModeChanged(e);
 
         switch(e.target.value){
-            case ScoreModes.PointBuy: this.showPointBuyDesc(); break;
-            case ScoreModes.StandardArray: this.showStandardArrayDesc(); break;
-            case ScoreModes.Roll4D6DropLowest: this.showRoll4D6DropLowestDesc(); break;
+            case ScoreModes.PointBuy: this.setDesc(ScoreModes.PointBuyDesc); break;
+            case ScoreModes.StandardArray: this.setDesc(ScoreModes.StandardArrayDesc); break;
+            case ScoreModes.Roll4D6DropLowest: this.setDesc(ScoreModes.Roll4D6DropLowestDesc); break;
         }
     }
 
-    showPointBuyDesc(){
-        document.getElementById("score-mode-desc").innerHTML = ScoreModes.PointBuyDesc;
-    }
-    
-    showStandardArrayDesc(){
-        document.getElementById("score-mode-desc").innerHTML = ScoreModes.StandardArrayDesc;
-    }
-    
-    showRoll4D6DropLowestDesc(){
-        document.getElementById("score-mode-desc").innerHTML = ScoreModes.Roll4D6DropLowestDesc;
+    setDesc(desc){
+        document.getElementById("score-mode-desc").innerHTML = desc;
     }
 }
 

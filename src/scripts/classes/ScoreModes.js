@@ -5,7 +5,7 @@ class ScoreModes {
     static Roll4D6DropLowest = "Roll 4D6 and drop the lowest";
 
     static PointBuyDesc = "Select a score between 8 and 15 for each ability.  Each value has a cost, and your total cost must not exceed the limit.";
-    static StandardArrayDesc = "An array of numbers (15, 14, 13, 12, 10, 8) are given.  Assign one to each ability.  No two abilities may have the same value.";
+    static StandardArrayDesc = "An array of numbers [8, 10, 12, 13, 14, 15] are given.  Assign one to each ability.  No two abilities may have the same value.";
     static Roll4D6DropLowestDesc = "For each ability 4D6 will be rolled.  The lowest of the four rolls is dropped, and the remaining three are added together.  The sum is the ability score.";
 
 }
