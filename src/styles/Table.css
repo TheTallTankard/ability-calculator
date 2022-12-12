@@ -11,3 +11,10 @@
 .header-row {
     font-weight: bold;
 }
+
+Table input,
+Table select {
+    width: 50px;
+    font-size: inherit;
+    border-radius: 10%;
+}

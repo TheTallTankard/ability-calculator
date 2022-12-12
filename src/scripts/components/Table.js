@@ -23,15 +23,6 @@ class Table extends React.Component {
             <div className="Table">
                 <table>
                     <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td colSpan="2">Points Used:</td>
-                            <td><span id="points-used">{this.state.pointsUsed}</span> / 27</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
                         <tr><td colSpan="8"></td></tr>
                         <tr className="header-row">
                             <td>ABILITY</td>
@@ -41,14 +32,23 @@ class Table extends React.Component {
                             <td></td>
                             <td>TOTAL</td>
                             <td>MODIFIER</td>
-                            <td>COST</td>
+                            <td className='point-buy-visible'>COST</td>
                         </tr>
-                        <AbilityRow ability="str" onCostChange={this.updatePointsUsed}></AbilityRow>
-                        <AbilityRow ability="dex" onCostChange={this.updatePointsUsed} ></AbilityRow>
-                        <AbilityRow ability="con" onCostChange={this.updatePointsUsed} ></AbilityRow>
-                        <AbilityRow ability="int" onCostChange={this.updatePointsUsed} ></AbilityRow>
-                        <AbilityRow ability="wis" onCostChange={this.updatePointsUsed} ></AbilityRow>
-                        <AbilityRow ability="cha" onCostChange={this.updatePointsUsed} ></AbilityRow>
+                        <AbilityRow ability="str" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed} ></AbilityRow>
+                        <AbilityRow ability="dex" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed} ></AbilityRow>
+                        <AbilityRow ability="con" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed} ></AbilityRow>
+                        <AbilityRow ability="int" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed} ></AbilityRow>
+                        <AbilityRow ability="wis" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed} ></AbilityRow>
+                        <AbilityRow ability="cha" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed} ></AbilityRow>
+                        <tr className="point-buy-visible">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td colSpan="2">TOTAL COST:</td>
+                            <td><span id="points-used">{this.state.pointsUsed}</span> / 27</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

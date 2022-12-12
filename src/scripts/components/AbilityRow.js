@@ -1,6 +1,6 @@
 import React from 'react';
 import AbilityRowState from '../classes/AbilityRowState'
-import '../../styles/AbilityRow.css';
+import ScoreInput from './ScoreInput'
 
 class AbilityRow extends React.Component {
     constructor(props){
@@ -15,13 +15,13 @@ class AbilityRow extends React.Component {
         return (
             <tr id={ability}>
                 <td>{ability.toUpperCase()}</td>
-                <td><input id={ability + "-score"} type="number" min="8" max="15" value={this.state.score} onChange={this.handleScoreChange}></input></td>
+                <td><ScoreInput ability={ability} scoreMode={this.props.scoreMode} scoreValue={this.state.score} onScoreChange={this.handleScoreChange}></ScoreInput></td>
                 <td>+</td>
                 <td><input id={ability + "-bonus"} type="number" min="0" max="2" value={this.state.bonus} onChange={this.handleBonusChange}></input></td>
                 <td>=</td>
                 <td><span id={ability + "-total"}></span>{this.state.total}</td>
                 <td><span id={ability + "-modifier"}></span>{this.state.modifier}</td>
-                <td><span id={ability + "-cost"}></span>{this.state.cost}</td>
+                <td className="point-buy-visible"><span id={ability + "-cost"}></span>{this.state.cost}</td>
             </tr>
         )
     }
