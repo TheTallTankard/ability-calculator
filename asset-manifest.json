@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/point-buy/static/css/main.6a7d503c.css",
-    "main.js": "/point-buy/static/js/main.3982cfd2.js",
+    "main.css": "/point-buy/static/css/main.068e2e47.css",
+    "main.js": "/point-buy/static/js/main.75643a48.js",
     "static/js/787.ea193347.chunk.js": "/point-buy/static/js/787.ea193347.chunk.js",
     "static/media/TheTallTankard_Zoomed_NoBackground.png": "/point-buy/static/media/TheTallTankard_Zoomed_NoBackground.b6385421908c2eeb0639.png",
     "index.html": "/point-buy/index.html",
-    "main.6a7d503c.css.map": "/point-buy/static/css/main.6a7d503c.css.map",
-    "main.3982cfd2.js.map": "/point-buy/static/js/main.3982cfd2.js.map",
+    "main.068e2e47.css.map": "/point-buy/static/css/main.068e2e47.css.map",
+    "main.75643a48.js.map": "/point-buy/static/js/main.75643a48.js.map",
     "787.ea193347.chunk.js.map": "/point-buy/static/js/787.ea193347.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6a7d503c.css",
-    "static/js/main.3982cfd2.js"
+    "static/css/main.068e2e47.css",
+    "static/js/main.75643a48.js"
   ]
 }
