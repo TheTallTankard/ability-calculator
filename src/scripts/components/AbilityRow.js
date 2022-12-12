@@ -1,13 +1,13 @@
 import React from 'react';
-import AbilityScoreRowState from '../classes/AbilityScoreRowState'
-import '../../styles/AbilityScoreRow.css';
+import AbilityRowState from '../classes/AbilityRowState'
+import '../../styles/AbilityRow.css';
 
-class AbilityScoreRow extends React.Component {
+class AbilityRow extends React.Component {
     constructor(props){
         super(props);
         this.handleScoreChange = this.handleScoreChange.bind(this);
         this.handleBonusChange = this.handleBonusChange.bind(this);
-        this.state = new AbilityScoreRowState();
+        this.state = new AbilityRowState();
     }
 
     render(){
@@ -27,24 +27,24 @@ class AbilityScoreRow extends React.Component {
     }
 
     handleScoreChange(e){
-        let newAbilityScoreRowState = this.recalculate(parseInt(e.target.value), this.state.bonus);
-        this.setState(newAbilityScoreRowState);
-        this.props.onCostChange(this.props.ability, newAbilityScoreRowState.cost);
+        let newAbilityRowState = this.recalculate(parseInt(e.target.value), this.state.bonus);
+        this.setState(newAbilityRowState);
+        this.props.onCostChange(this.props.ability, newAbilityRowState.cost);
     }
 
     handleBonusChange(e){
-        let newAbilityScoreRowState = this.recalculate(this.state.score, parseInt(e.target.value));
-        this.setState(newAbilityScoreRowState);
+        let newAbilityRowState = this.recalculate(this.state.score, parseInt(e.target.value));
+        this.setState(newAbilityRowState);
     }
 
     recalculate(score, bonus){
-        let newAbilityScoreRowState = new AbilityScoreRowState();
-        newAbilityScoreRowState.score = score;
-        newAbilityScoreRowState.bonus = bonus;
-        newAbilityScoreRowState.total = score + bonus;
-        newAbilityScoreRowState.modifier = parseInt(newAbilityScoreRowState.total / 2) - 5;
-        newAbilityScoreRowState.cost = this.scoreToCost(score);
-        return newAbilityScoreRowState;
+        let newAbilityRowState = new AbilityRowState();
+        newAbilityRowState.score = score;
+        newAbilityRowState.bonus = bonus;
+        newAbilityRowState.total = score + bonus;
+        newAbilityRowState.modifier = parseInt(newAbilityRowState.total / 2) - 5;
+        newAbilityRowState.cost = this.scoreToCost(score);
+        return newAbilityRowState;
     }
 
     scoreToCost(score){
@@ -57,4 +57,4 @@ class AbilityScoreRow extends React.Component {
 
 }
 
-export default AbilityScoreRow;
+export default AbilityRow;

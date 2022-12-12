@@ -1,4 +1,4 @@
-class AbilityScoreRowState {
+class AbilityRowState {
     constructor(){
         this.score = 8;
         this.bonus = 0;
@@ -8,4 +8,4 @@ class AbilityScoreRowState {
     }
 }
 
-export default AbilityScoreRowState;
+export default AbilityRowState;

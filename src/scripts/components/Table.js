@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../styles/Table.css';
-import AbilityScoreRow from './AbilityScoreRow';
+import AbilityRow from './AbilityRow';
 
 
 class Table extends React.Component {
@@ -43,12 +43,12 @@ class Table extends React.Component {
                             <td>MODIFIER</td>
                             <td>COST</td>
                         </tr>
-                        <AbilityScoreRow ability="str" onCostChange={this.updatePointsUsed}></AbilityScoreRow>
-                        <AbilityScoreRow ability="dex" onCostChange={this.updatePointsUsed} ></AbilityScoreRow>
-                        <AbilityScoreRow ability="con" onCostChange={this.updatePointsUsed} ></AbilityScoreRow>
-                        <AbilityScoreRow ability="int" onCostChange={this.updatePointsUsed} ></AbilityScoreRow>
-                        <AbilityScoreRow ability="wis" onCostChange={this.updatePointsUsed} ></AbilityScoreRow>
-                        <AbilityScoreRow ability="cha" onCostChange={this.updatePointsUsed} ></AbilityScoreRow>
+                        <AbilityRow ability="str" onCostChange={this.updatePointsUsed}></AbilityRow>
+                        <AbilityRow ability="dex" onCostChange={this.updatePointsUsed} ></AbilityRow>
+                        <AbilityRow ability="con" onCostChange={this.updatePointsUsed} ></AbilityRow>
+                        <AbilityRow ability="int" onCostChange={this.updatePointsUsed} ></AbilityRow>
+                        <AbilityRow ability="wis" onCostChange={this.updatePointsUsed} ></AbilityRow>
+                        <AbilityRow ability="cha" onCostChange={this.updatePointsUsed} ></AbilityRow>
                     </tbody>
                 </table>
             </div>
