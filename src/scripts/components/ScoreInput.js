@@ -34,9 +34,7 @@ class ScoreInput extends React.Component {
     }
 
     showRoll4D6DropLowestInput(){
-        return (
-            "?"
-        )
+        return this.props.rolledValue;
     }
 }
 

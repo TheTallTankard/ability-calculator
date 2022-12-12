@@ -15,7 +15,7 @@ class AbilityRow extends React.Component {
         return (
             <tr id={ability}>
                 <td>{ability.toUpperCase()}</td>
-                <td><ScoreInput ability={ability} scoreMode={this.props.scoreMode} scoreValue={this.state.score} onScoreChange={this.handleScoreChange}></ScoreInput></td>
+                <td><ScoreInput ability={ability} scoreMode={this.props.scoreMode} scoreValue={this.state.score} onScoreChange={this.handleScoreChange} rolledValue={this.props.rolledValue}></ScoreInput></td>
                 <td>+</td>
                 <td><input id={ability + "-bonus"} type="number" min="0" max="2" value={this.state.bonus} onChange={this.handleBonusChange}></input></td>
                 <td>=</td>

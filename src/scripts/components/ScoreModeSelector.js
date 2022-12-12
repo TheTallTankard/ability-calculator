@@ -21,7 +21,7 @@ class ScoreModeSelector extends React.Component {
                         <option value={ScoreModes.Roll4D6DropLowest}>{ScoreModes.Roll4D6DropLowest}</option>
                     </select>
                     &nbsp;
-                    <Button className="roll-4d6-drop-low-conditional" onClick={this.roll}>Roll</Button>
+                    <Button className="roll-4d6-drop-low-conditional" onClick={this.props.onRollClicked}>Roll</Button>
                 </div>
                 <br />
                 <div id="score-mode-desc">{ScoreModes.PointBuyDesc}</div>

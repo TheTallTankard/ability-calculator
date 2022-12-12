@@ -35,12 +35,12 @@ class AbilityTable extends React.Component {
                             <td>MODIFIER</td>
                             <td className='point-buy-conditional'>COST</td>
                         </tr>
-                        <AbilityRow ability="str" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed} ></AbilityRow>
-                        <AbilityRow ability="dex" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed} ></AbilityRow>
-                        <AbilityRow ability="con" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed} ></AbilityRow>
-                        <AbilityRow ability="int" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed} ></AbilityRow>
-                        <AbilityRow ability="wis" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed} ></AbilityRow>
-                        <AbilityRow ability="cha" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed} ></AbilityRow>
+                        <AbilityRow ability="str" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed} rolledValue={this.props.rollResults[0]} ></AbilityRow>
+                        <AbilityRow ability="dex" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed} rolledValue={this.props.rollResults[1]} ></AbilityRow>
+                        <AbilityRow ability="con" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed} rolledValue={this.props.rollResults[2]} ></AbilityRow>
+                        <AbilityRow ability="int" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed} rolledValue={this.props.rollResults[3]} ></AbilityRow>
+                        <AbilityRow ability="wis" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed} rolledValue={this.props.rollResults[4]} ></AbilityRow>
+                        <AbilityRow ability="cha" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed} rolledValue={this.props.rollResults[5]} ></AbilityRow>
                         <tr className="point-buy-conditional">
                             <td></td>
                             <td></td>
