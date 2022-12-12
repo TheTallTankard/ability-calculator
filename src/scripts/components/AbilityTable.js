@@ -1,9 +1,10 @@
 import React from 'react';
-import '../../styles/Table.css';
+import '../../styles/AbilityTable.css';
+import Table from 'react-bootstrap/Table';
 import AbilityRow from './AbilityRow';
 
 
-class Table extends React.Component {
+class AbilityTable extends React.Component {
     constructor(props){
         super(props);
         this.updatePointsUsed = this.updatePointsUsed.bind(this);
@@ -20,8 +21,8 @@ class Table extends React.Component {
 
     render(){
         return (
-            <div className="Table">
-                <table>
+            <div>
+                <Table>
                     <tbody>
                         <tr><td colSpan="8"></td></tr>
                         <tr className="header-row">
@@ -32,7 +33,7 @@ class Table extends React.Component {
                             <td></td>
                             <td>TOTAL</td>
                             <td>MODIFIER</td>
-                            <td className='point-buy-visible'>COST</td>
+                            <td className='point-buy-conditional'>COST</td>
                         </tr>
                         <AbilityRow ability="str" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed} ></AbilityRow>
                         <AbilityRow ability="dex" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed} ></AbilityRow>
@@ -40,7 +41,7 @@ class Table extends React.Component {
                         <AbilityRow ability="int" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed} ></AbilityRow>
                         <AbilityRow ability="wis" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed} ></AbilityRow>
                         <AbilityRow ability="cha" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed} ></AbilityRow>
-                        <tr className="point-buy-visible">
+                        <tr className="point-buy-conditional">
                             <td></td>
                             <td></td>
                             <td></td>
@@ -50,7 +51,7 @@ class Table extends React.Component {
                             <td><span id="points-used">{this.state.pointsUsed}</span> / 27</td>
                         </tr>
                     </tbody>
-                </table>
+                </Table>
             </div>
         )
     }
@@ -72,4 +73,4 @@ class Table extends React.Component {
     }    
 }
 
-export default Table;
+export default AbilityTable;

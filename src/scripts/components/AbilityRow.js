@@ -21,7 +21,7 @@ class AbilityRow extends React.Component {
                 <td>=</td>
                 <td><span id={ability + "-total"}></span>{this.state.total}</td>
                 <td><span id={ability + "-modifier"}></span>{this.state.modifier}</td>
-                <td className="point-buy-visible"><span id={ability + "-cost"}></span>{this.state.cost}</td>
+                <td className="point-buy-conditional"><span id={ability + "-cost"}></span>{this.state.cost}</td>
             </tr>
         )
     }

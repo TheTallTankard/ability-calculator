@@ -2,7 +2,7 @@ import React from 'react';
 import '../../styles/Body.css';
 import ScoreModes from '../classes/ScoreModes';
 import ScoreModeSelector from './ScoreModeSelector';
-import Table from './Table';
+import AbilityTable from './AbilityTable';
 
 
 class Body extends React.Component {
@@ -18,7 +18,7 @@ class Body extends React.Component {
         return (
             <div className="Body">
                 <ScoreModeSelector onScoreModeChanged={this.updateScoreMode}></ScoreModeSelector>
-                <Table scoreMode={this.state.scoreMode}></Table>
+                <AbilityTable scoreMode={this.state.scoreMode}></AbilityTable>
             </div>
         )
     }
@@ -27,23 +27,30 @@ class Body extends React.Component {
         this.setState((prevState) => ({scoreMode: e.target.value}))
 
         switch(e.target.value){
-            case ScoreModes.PointBuy: this.showPointBuyElements(); break;
-            case ScoreModes.StandardArray: this.hidePointBuyElements(); break;
-            case ScoreModes.Roll4D6DropLowest: this.hidePointBuyElements(); break;
+            case ScoreModes.PointBuy:
+                this.hideElementsByClass("roll-4d6-drop-low-conditional");
+                this.showElementsByClass("point-buy-conditional");
+                break;
+            case ScoreModes.StandardArray:
+                this.hideElementsByClass("roll-4d6-drop-low-conditional");
+                this.hideElementsByClass("point-buy-conditional");
+                 break;
+            case ScoreModes.Roll4D6DropLowest:
+                this.showElementsByClass("roll-4d6-drop-low-conditional");
+                this.hideElementsByClass("point-buy-conditional");
+                break;
         }
     }
 
-    showPointBuyElements(){
-        console.log("showing...");
-        var elements = document.getElementsByClassName("point-buy-visible");
+    showElementsByClass(className){
+        var elements = document.getElementsByClassName(className);
         for (let i = 0; i < elements.length; i++){
             elements[i].style.visibility = "visible";
         }
     }
 
-    hidePointBuyElements(){
-        console.log("hiding...");
-        var elements = document.getElementsByClassName("point-buy-visible");
+    hideElementsByClass(className){
+        var elements = document.getElementsByClassName(className);
         for (let i = 0; i < elements.length; i++){
             elements[i].style.visibility = "hidden";
         }

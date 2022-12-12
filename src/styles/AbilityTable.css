@@ -1,9 +1,9 @@
-.Table table{
+table{
     max-width: 800px;
     margin: 0 auto;
 }
 
-.Table td {
+table td {
     width: 12.5%;
     padding: 5px;
 }
@@ -12,9 +12,7 @@
     font-weight: bold;
 }
 
-Table input,
-Table select {
-    width: 50px;
-    font-size: inherit;
-    border-radius: 10%;
+table input,
+table select {
+    width: 5vw;
 }

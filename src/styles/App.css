@@ -16,3 +16,23 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {  
    opacity: 1;
 }
+
+select, input, button {
+  font-size: inherit;
+  text-align: center;
+  border-radius: 0.2em;
+}
+
+button {
+  box-shadow: -2px 3px 2px #636e81;
+  border-style: none;
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+button:hover {
+  background-color: rgb(182, 192, 194);
+}
