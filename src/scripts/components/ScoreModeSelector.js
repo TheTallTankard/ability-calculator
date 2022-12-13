@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
 import '../../styles/ScoreModeSelector.css'
 import ScoreModes from '../classes/ScoreModes.js'
 
@@ -11,14 +12,11 @@ class ScoreModeSelector extends React.Component {
     render(){
         return (
             <div className="ScoreModeSelector">
-                <div>
-                    Calculation Mode:
-                    &nbsp;
-                    <select onChange={this.selectionChanged}>
-                        <option value={ScoreModes.PointBuy}>{ScoreModes.PointBuy}</option>
-                        <option value={ScoreModes.StandardArray}>{ScoreModes.StandardArray}</option>
-                        <option value={ScoreModes.Roll4D6DropLowest}>{ScoreModes.Roll4D6DropLowest}</option>
-                    </select>
+                Select your preferred calculation mode
+                <div className="selection-buttons">
+                    <Button onClick={this.selectionChanged} value={ScoreModes.PointBuy}>{ScoreModes.PointBuy}</Button>
+                    <Button onClick={this.selectionChanged} value={ScoreModes.StandardArray}>{ScoreModes.StandardArray}</Button>
+                    <Button onClick={this.selectionChanged} value={ScoreModes.Roll4D6DropLowest}>{ScoreModes.Roll4D6DropLowest}</Button>
                 </div>
                 <br />
                 <div id="score-mode-desc">{ScoreModes.PointBuyDesc}</div>
@@ -29,6 +27,13 @@ class ScoreModeSelector extends React.Component {
 
     selectionChanged(e){
         this.props.onScoreModeChanged(e);
+
+        let buttons = document.querySelector(".selection-buttons").children;
+        for (let i = 0; i < buttons.length; i++){
+            buttons[i].classList.remove("active-mode");
+        }
+
+        e.target.classList.add("active-mode");
 
         switch(e.target.value){
             case ScoreModes.PointBuy: this.setDesc(ScoreModes.PointBuyDesc); break;

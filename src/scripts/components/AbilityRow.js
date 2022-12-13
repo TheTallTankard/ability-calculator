@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import AbilityRowState from '../classes/AbilityRowState'
+import ScoreModes from '../classes/ScoreModes';
 import ScoreInput from './ScoreInput'
 
 class AbilityRow extends React.Component {
@@ -13,12 +14,11 @@ class AbilityRow extends React.Component {
     }
 
     render(){
-        const { ability } = this.props;
+        const { ability, scoreMode } = this.props;
         return (
             <tr id={ability}>
-                <td><Button className="roll-button" onClick={this.handleRollClicked}>Roll</Button></td>
-                <td>{ability.toUpperCase()}</td>
-                <td><ScoreInput ability={ability} scoreMode={this.props.scoreMode} scoreValue={this.state.score} onScoreChange={this.handleScoreChange} rolledValue={this.props.rolledValue}></ScoreInput></td>
+                <td><Button className="roll-button inactive-button" onClick={this.handleRollClicked}>{ability.toUpperCase()}</Button></td>
+                <td><ScoreInput ability={ability} scoreMode={scoreMode} scoreValue={this.state.score} onScoreChange={this.handleScoreChange}></ScoreInput></td>
                 <td>+</td>
                 <td><input id={ability + "-bonus"} type="number" min="0" max="2" value={this.state.bonus} onChange={this.handleBonusChange}></input></td>
                 <td>=</td>
@@ -39,7 +39,9 @@ class AbilityRow extends React.Component {
     }
 
     handleRollClicked(e){
-        this.innerHandleScoreChange(this.rollAbilityScore());
+        if (this.props.scoreMode == ScoreModes.Roll4D6DropLowest){
+            this.innerHandleScoreChange(this.rollAbilityScore());
+        }
     }
 
     innerHandleScoreChange(score){

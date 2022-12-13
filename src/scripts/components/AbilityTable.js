@@ -26,13 +26,11 @@ class AbilityTable extends React.Component {
                 <Table>
                     <tbody>
                         <tr>
-                            <td></td>
-                            <td colSpan="2"><Button id="roll-all" className="roll-4d6-drop-low-conditional" onClick={this.props.onRollClicked}>Roll new scores</Button></td>
+                            <td colSpan="2"><Button id="roll-all" className="roll-4d6-drop-low-conditional" onClick={this.props.onRollClicked}>Roll all scores</Button></td>
                             <td colSpan="5"></td>
                             <td className='point-buy-conditional'></td>
                         </tr>
                         <tr className="bold">
-                            <td className='col-normal'></td>
                             <td className='col-normal'>ABILITY</td>
                             <td className='col-normal'>SCORE</td>
                             <td className='col-skinny'></td>
@@ -48,10 +46,9 @@ class AbilityTable extends React.Component {
                         <AbilityRow ability="int" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed}></AbilityRow>
                         <AbilityRow ability="wis" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed}></AbilityRow>
                         <AbilityRow ability="cha" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed}></AbilityRow>
-                        <tr className="point-buy-conditional">
+                        <tr className="bold point-buy-conditional">
                             <td colSpan="6"></td>
-                            <td>Total cost:</td>
-                            <td colSpan="2"><span id="points-used">{this.state.pointsUsed}</span> / 27</td>
+                            <td colSpan="2">Total cost: {this.state.pointsUsed} / 27</td>
                         </tr>
                     </tbody>
                 </Table>

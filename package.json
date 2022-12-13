@@ -1,7 +1,7 @@
 {
-  "name": "point-buy",
+  "name": "ability-calculator",
   "version": "0.1.0",
-  "homepage": "https://TheTallTankard.github.io/point-buy/",
+  "homepage": "https://TheTallTankard.github.io/ability-calculator/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

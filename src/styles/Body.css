@@ -3,3 +3,10 @@
     flex-direction: column;
     margin: 30px 0;
 }
+
+button.inactive-button {
+    color: white;
+    background-color: transparent;
+    box-shadow: none;
+    transform: none;
+}

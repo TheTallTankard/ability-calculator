@@ -4,7 +4,7 @@ function Header () {
     return (
         <div className="Header">
             <h2>
-                D&D 5th Edition Point Buy Calculator
+                D&D 5th Edition Ability Calculator
             </h2>
         </div>
     )
