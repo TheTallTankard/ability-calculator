@@ -1,18 +1,26 @@
 table{
-    max-width: 800px;
+    width: 100%;
+    max-width: 900px;
     margin: 0 auto;
 }
 
-table td {
+table td.col-normal {
     width: 12.5%;
-    padding: 5px;
 }
 
-.header-row {
+table td.col-skinny {
+}
+
+.bold {
     font-weight: bold;
 }
 
 table input,
 table select {
-    width: 5vw;
+    width: fit-content;
+}
+
+#roll-all {
+    padding: 10px;
+    margin-bottom: 10px;
 }

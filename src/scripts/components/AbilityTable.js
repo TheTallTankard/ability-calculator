@@ -26,20 +26,21 @@ class AbilityTable extends React.Component {
                 <Table>
                     <tbody>
                         <tr>
-                            <td colSpan="3"><Button className="roll-4d6-drop-low-conditional" onClick={this.props.onRollClicked}>Roll new scores</Button></td>
+                            <td></td>
+                            <td colSpan="2"><Button id="roll-all" className="roll-4d6-drop-low-conditional" onClick={this.props.onRollClicked}>Roll new scores</Button></td>
                             <td colSpan="5"></td>
                             <td className='point-buy-conditional'></td>
                         </tr>
-                        <tr className="header-row">
-                            <td></td>
-                            <td>ABILITY</td>
-                            <td>SCORE</td>
-                            <td></td>
-                            <td>BONUS</td>
-                            <td></td>
-                            <td>TOTAL</td>
-                            <td>MODIFIER</td>
-                            <td className='point-buy-conditional'>COST</td>
+                        <tr className="bold">
+                            <td className='col-normal'></td>
+                            <td className='col-normal'>ABILITY</td>
+                            <td className='col-normal'>SCORE</td>
+                            <td className='col-skinny'></td>
+                            <td className='col-normal'>BONUS</td>
+                            <td className='col-skinny'></td>
+                            <td className='col-normal'>TOTAL</td>
+                            <td className='col-normal'>MODIFIER</td>
+                            <td className='col-normal point-buy-conditional'>COST</td>
                         </tr>
                         <AbilityRow ability="str" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed}></AbilityRow>
                         <AbilityRow ability="dex" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed}></AbilityRow>
@@ -48,8 +49,8 @@ class AbilityTable extends React.Component {
                         <AbilityRow ability="wis" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed}></AbilityRow>
                         <AbilityRow ability="cha" scoreMode={this.props.scoreMode} onCostChange={this.updatePointsUsed}></AbilityRow>
                         <tr className="point-buy-conditional">
-                            <td colSpan="5"></td>
-                            <td colSpan="2">TOTAL COST:</td>
+                            <td colSpan="6"></td>
+                            <td>Total cost:</td>
                             <td colSpan="2"><span id="points-used">{this.state.pointsUsed}</span> / 27</td>
                         </tr>
                     </tbody>

@@ -2,6 +2,6 @@
     font-size: 70%;
 }
 
-.ScoreModeSelector button {
-    width: 6vw;
+.ScoreModeSelector select {
+    padding: 5px;
 }
