@@ -1,12 +1,14 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
 import AbilityRowState from '../classes/AbilityRowState'
 import ScoreInput from './ScoreInput'
 
 class AbilityRow extends React.Component {
-    constructor(props){
-        super(props);
+    constructor(){
+        super();
         this.handleScoreChange = this.handleScoreChange.bind(this);
         this.handleBonusChange = this.handleBonusChange.bind(this);
+        this.handleRollClicked = this.handleRollClicked.bind(this);
         this.state = new AbilityRowState();
     }
 
@@ -14,6 +16,7 @@ class AbilityRow extends React.Component {
         const { ability } = this.props;
         return (
             <tr id={ability}>
+                <td><Button className="roll-button" onClick={this.handleRollClicked}>Roll</Button></td>
                 <td>{ability.toUpperCase()}</td>
                 <td><ScoreInput ability={ability} scoreMode={this.props.scoreMode} scoreValue={this.state.score} onScoreChange={this.handleScoreChange} rolledValue={this.props.rolledValue}></ScoreInput></td>
                 <td>+</td>
@@ -27,14 +30,22 @@ class AbilityRow extends React.Component {
     }
 
     handleScoreChange(e){
-        let newAbilityRowState = this.recalculate(parseInt(e.target.value), this.state.bonus);
-        this.setState(newAbilityRowState);
-        this.props.onCostChange(this.props.ability, newAbilityRowState.cost);
+        this.innerHandleScoreChange(e.target.value);
     }
 
     handleBonusChange(e){
         let newAbilityRowState = this.recalculate(this.state.score, parseInt(e.target.value));
         this.setState(newAbilityRowState);
+    }
+
+    handleRollClicked(e){
+        this.innerHandleScoreChange(this.rollAbilityScore());
+    }
+
+    innerHandleScoreChange(score){
+        let newAbilityRowState = this.recalculate(parseInt(score), this.state.bonus);
+        this.setState(newAbilityRowState);
+        this.props.onCostChange(this.props.ability, newAbilityRowState.cost);
     }
 
     recalculate(score, bonus){
@@ -53,6 +64,17 @@ class AbilityRow extends React.Component {
             case 14: return 7;
             default: return (score - 8);
         }
+    }
+
+    rollAbilityScore(){
+        let rolls = [];
+        for (let i = 0; i < 4; i++){
+            rolls.push(Math.floor(Math.random() * 6) + 1);
+        }
+        rolls = rolls.sort((a, b) => a - b);
+        rolls.shift();
+
+        return rolls.reduce((a, b) => a + b, 0);
     }
 
 }

@@ -36,3 +36,8 @@ button:active {
 button:hover {
   background-color: rgb(182, 192, 194);
 }
+
+.roll-button,
+.roll-4d6-drop-low-conditional {
+  visibility: hidden;
+}

@@ -5,7 +5,3 @@
 .ScoreModeSelector button {
     width: 6vw;
 }
-
-.ScoreModeSelector .roll-4d6-drop-low-conditional {
-    visibility: hidden;
-}

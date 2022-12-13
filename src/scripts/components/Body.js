@@ -11,27 +11,24 @@ class Body extends React.Component {
         this.updateScoreMode = this.updateScoreMode.bind(this);
         this.onRollClicked = this.onRollClicked.bind(this);
         this.state = {
-            scoreMode: ScoreModes.PointBuy,
-            rollResults: ["?", "?", "?", "?", "?", "?"]
+            scoreMode: ScoreModes.PointBuy
         }
     }
 
     render(){
         return (
             <div className="Body">
-                <ScoreModeSelector onScoreModeChanged={this.updateScoreMode} onRollClicked={this.onRollClicked}></ScoreModeSelector>
-                <AbilityTable scoreMode={this.state.scoreMode} rollResults={this.state.rollResults}></AbilityTable>
+                <ScoreModeSelector onScoreModeChanged={this.updateScoreMode}></ScoreModeSelector>
+                <AbilityTable scoreMode={this.state.scoreMode} onRollClicked={this.onRollClicked}></AbilityTable>
             </div>
         )
     }
 
     onRollClicked(e){
-        let results = [];
-        for (let i = 0; i < 6; i++){
-            results.push(this.rollAbilityScore());
+        var rollButtons = document.getElementsByClassName("roll-button");
+        for (let i = 0; i < rollButtons.length; i++){
+            rollButtons[i].click();
         }
-
-        this.setState((prevState) => ({ rollResults: results}));
     }
 
     updateScoreMode(e){
@@ -51,17 +48,6 @@ class Body extends React.Component {
                 this.hideElementsByClass("point-buy-conditional");
                 break;
         }
-    }
-
-    rollAbilityScore(){
-        let rolls = [];
-        for (let i = 0; i < 4; i++){
-            rolls.push(Math.floor(Math.random() * 6) + 1);
-        }
-        rolls = rolls.sort((a, b) => a - b);
-        rolls.shift();
-
-        return rolls.reduce((a, b) => a + b, 0);
     }
 
     showElementsByClass(className){
