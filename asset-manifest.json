@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/ability-calculator/static/css/main.f0daa988.css",
-    "main.js": "/ability-calculator/static/js/main.a5165ab9.js",
+    "main.css": "/ability-calculator/static/css/main.abb97a03.css",
+    "main.js": "/ability-calculator/static/js/main.cfb99194.js",
     "static/js/787.62a23538.chunk.js": "/ability-calculator/static/js/787.62a23538.chunk.js",
     "static/media/TheTallTankard_Zoomed_NoBackground.png": "/ability-calculator/static/media/TheTallTankard_Zoomed_NoBackground.b6385421908c2eeb0639.png",
     "index.html": "/ability-calculator/index.html",
-    "main.f0daa988.css.map": "/ability-calculator/static/css/main.f0daa988.css.map",
-    "main.a5165ab9.js.map": "/ability-calculator/static/js/main.a5165ab9.js.map",
+    "main.abb97a03.css.map": "/ability-calculator/static/css/main.abb97a03.css.map",
+    "main.cfb99194.js.map": "/ability-calculator/static/js/main.cfb99194.js.map",
     "787.62a23538.chunk.js.map": "/ability-calculator/static/js/787.62a23538.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f0daa988.css",
-    "static/js/main.a5165ab9.js"
+    "static/css/main.abb97a03.css",
+    "static/js/main.cfb99194.js"
   ]
 }
