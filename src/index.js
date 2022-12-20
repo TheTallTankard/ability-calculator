@@ -4,6 +4,13 @@ import './index.css';
 import App from './scripts/components/App';
 import reportWebVitals from './reportWebVitals';
 
+//Included for react bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+//Custom theming
+import './common/css/ttt-react-bootstrap-override.css';
+import './common/css/ttt-theme.css';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

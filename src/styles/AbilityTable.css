@@ -12,6 +12,11 @@ table td.col-normal {
 table td.col-skinny {
 }
 
+table tr:first-child > td,
+table tr:last-child > td {
+    border-bottom: none;
+}
+
 .bold {
     font-weight: bold;
 }
@@ -19,6 +24,7 @@ table td.col-skinny {
 table input,
 table select {
     width: 60%;
+    height: 100%;
 }
 
 #roll-all {

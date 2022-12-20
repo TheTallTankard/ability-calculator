@@ -4,7 +4,9 @@
     margin: 30px 0;
 }
 
-button.inactive-button {
+button.inactive-button,
+button.inactive-button:hover,
+button.inactive-button:hover:active {
     color: white;
     background-color: transparent;
     box-shadow: none;
